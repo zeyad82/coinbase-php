@@ -68,10 +68,7 @@ class ApiKeyAuthentication implements Authentication
 
     protected function getTimestamp()
     {
-        return json_decode(file_get_contents('https://api.coinbase.com/v2/time', false, stream_context_create(['ssl' => [
-            'verify_peer' => false,
-            'verify_peer_name' => false
-        ]])))->data->epoch;
+        return now()->timestamp;
     }
 
     protected function getHash($algo, $data, $key)
