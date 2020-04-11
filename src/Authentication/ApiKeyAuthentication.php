@@ -68,7 +68,7 @@ class ApiKeyAuthentication implements Authentication
 
     protected function getTimestamp()
     {
-        return time();
+        return now()->timestamp;
     }
 
     protected function getHash($algo, $data, $key)
